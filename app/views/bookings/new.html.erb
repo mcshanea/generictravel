@@ -1,0 +1,20 @@
+<h1>New booking</h1>
+
+<% form_for(@booking) do |f| %>
+  <%= render :partial => 'fields', :locals => { :f => f } %>
+
+  <% unless @booking.clients.blank? %>
+    <%= render :partial => 'show_clients', :locals => { :clients => @booking.clients } %>
+  <% end %>
+
+	<%= f.hidden_field :company_id %>
+	<%= f.hidden_field :agent_id %>
+
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+
+
+<%= link_to 'Back', bookings_path %>

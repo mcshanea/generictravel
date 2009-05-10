@@ -1,0 +1,46 @@
+<%= error_messages_for :agent %>
+<% form_for :agent, :url => agents_path do |f| -%>
+<p><label for="login">Login</label><br/>
+<%= f.text_field :login %></p>
+
+<p><label for="email">Email</label><br/>
+<%= f.text_field :email %></p>
+  <p>
+    Existing Company<br />
+    <%= f.collection_select :company_id, Company.find(:all, :conditions => {:active => true}), :id, :name, :include_blank => true %>
+  </p>
+  
+  <%= link_to 'Apply for New Company', {:controller => 'companies', :action => 'new'} %>
+  
+  <p>
+    <label for="first_name">First name</label><br />
+    <%= f.text_field :first_name %>
+  </p>
+
+  <p>
+    <label for="last_name">Last name</label><br />
+    <%= f.text_field :last_name %>
+  </p>
+
+  <p>
+    <label for="telephone">Telephone</label><br />
+    <%= f.text_field :telephone %>
+  </p>
+
+  <p>
+    <label for="mobile">Mobile</label><br />
+    <%= f.text_field :mobile %>
+  </p>
+
+<p><label for="password">Password</label><br/>
+<%= f.password_field :password %></p>
+
+<p><label for="password_confirmation">Confirm Password</label><br/>
+<%= f.password_field :password_confirmation %></p>
+
+<p><%= submit_tag 'Sign up' %></p>
+
+  <p>
+    <%= link_to 'Login', login_path %>
+  </p>
+<% end -%>

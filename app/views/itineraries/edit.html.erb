@@ -1,0 +1,47 @@
+<h1>Editing itinerary</h1>
+
+<%= error_messages_for :itinerary %>
+
+<% form_for(@itinerary) do |f| %>
+  <p>
+    <b>Itinerary type</b><br />
+    <%= f.text_field :itinerary_type %>
+  </p>
+
+  <p>
+    <b>Departing</b><br />
+    <%= f.text_field :departing %>
+  </p>
+
+  <p>
+    <b>Arriving</b><br />
+    <%= f.text_field :arriving %>
+  </p>
+
+  <p>
+    <b>Arrival date</b><br />
+    <%= f.text_field :formatted_arrival_date %>
+  </p>
+
+  <p>
+    <b>Departure date</b><br />
+    <%= f.text_field :formatted_departure_date %>
+  </p>
+
+  <p>
+    <b>Operator</b><br />
+    <%= f.text_field :operator %>
+  </p>
+
+  <p>
+    <b>Booking reference</b><br />
+    <%= f.text_field :booking_reference %>
+  </p>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @itinerary %> |
+<%= link_to 'Back', itineraries_path %>

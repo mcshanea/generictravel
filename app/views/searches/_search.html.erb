@@ -1,0 +1,34 @@
+<h1>Listing searches</h1>
+
+<table>
+  <tr>
+    <th>Departing</th>
+    <th>Arriving</th>
+    <th>Status</th>
+    <th>From</th>
+    <th>To</th>
+    <th>Service</th>
+    <th>Agent</th>
+    <th>Customer</th>
+  </tr>
+
+<% for search in @searches %>
+  <tr>
+    <td><%=h search.departing %></td>
+    <td><%=h search.arriving %></td>
+    <td><%=h search.status %></td>
+    <td><%=h search.from %></td>
+    <td><%=h search.to %></td>
+    <td><%=h search.service_id %></td>
+    <td><%=h search.agent_id %></td>
+    <td><%=h search.customer_id %></td>
+    <td><%= link_to 'Show', search %></td>
+    <td><%= link_to 'Edit', edit_search_path(search) %></td>
+    <td><%= link_to 'Destroy', search, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New search', new_search_path %>

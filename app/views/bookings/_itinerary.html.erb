@@ -1,0 +1,83 @@
+<div class="itinerary">
+<% fields_for_itinerary(itinerary) do |f| %>
+	<% itinDisabled = true
+
+	if itinerary.id == nil
+		itinDisabled = false
+	else
+	 itin_type = itinerary.itinerary_type	
+	end %>
+
+  <p>
+    <b>Itinerary type:</b><br />
+    <%= itin_type %>
+		<%= f.hidden_field :itinerary_type, :value => itin_type %>
+  </p>
+
+	<% if itin_type == 'HOTEL' && itinerary.id == nil %>
+		<div id="hotel" class='itinerary_hotel'>
+			<%= render :partial => 'hotel_picker' %>
+		</div>
+	<% elsif itinerary.rate_id %>
+		<%= render :partial => 'hotel', :locals => {:rate_id => itinerary.rate_id} %>
+	<% end %>
+
+	<% if itin_type != "HOTEL" %>
+	  <p>
+	    <b>Departure Point</b><br />
+	    <%= f.text_field :departing %>
+	  </p>
+
+	  <p>
+	    <b>Arrival Point</b><br />
+	    <%= f.text_field :arriving %>
+	  </p>
+	<% end %>
+
+  <p>
+		<% if itin_type == "HOTEL" %>
+	    <b>Check in</b><br />
+		<% else %>
+			<b>Departure date</b><br />
+		<% end %>
+	
+		<div class="itinerary_dep_date">
+			<%= f.calendar_date_select :departure_date, :time => true %>
+		</div>
+  </p>
+  
+  <p>
+		<% if itin_type == "HOTEL" %>
+	    <b>Check out</b><br />
+		<% else %>
+			<b>Arrival date</b><br />
+		<% end %>
+    
+		<div class="itinerary_arr_date">
+			<%= f.calendar_date_select :arrival_date, :time => true %>
+		</div>
+  </p>
+
+  <p>
+    <b>Operator</b><br />
+    <%= f.text_field :operator %>
+  </p>
+
+  <p>
+    <b>Booking reference</b><br />
+    <%= f.text_field :booking_reference %>
+  </p>
+  
+	<% if itin_type != "HOTEL" %>
+	  <p>
+	    <b>Amount</b><br />
+	    <%= f.text_field :payment_amount %>
+	  </p>
+	<% end %>
+	
+	<%= f.hidden_field :rate_id %>
+
+  <%= link_to_function "remove", "this.up('.itinerary').remove()" %>
+
+<% end %>
+  </div>

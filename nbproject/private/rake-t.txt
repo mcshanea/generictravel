@@ -1,0 +1,5 @@
+(in /Users/tglmweb/NetBeansProjects/alanaka)
+rake aborted!
+no such file to load -- /Users/tglmweb/NetBeansProjects/alanaka/config/../vendor/rails/railties/lib/initializer
+/Users/tglmweb/NetBeansProjects/alanaka/rakefile:4
+(See full trace by running task with --trace)

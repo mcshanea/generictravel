@@ -1,0 +1,31 @@
+<h1>Listing itineraries</h1>
+
+<table>
+  <tr>
+    <th>Itinerary type</th>
+    <th>Departing</th>
+    <th>Arriving</th>
+    <th>Arrival date</th>
+    <th>Departure date</th>
+    <th>Operator</th>
+    <th>Booking reference</th>
+  </tr>
+
+<% for itinerary in @itineraries %>
+  <tr>
+    <td><%=h itinerary.itinerary_type %></td>
+    <td><%=h itinerary.departing %></td>
+    <td><%=h itinerary.arriving %></td>
+    <td><%=h itinerary.formatted_arrival_date %></td>
+    <td><%=h itinerary.formatted_departure_date %></td>
+    <td><%=h itinerary.operator %></td>
+    <td><%=h itinerary.booking_reference %></td>
+    <td><%= link_to 'List', {:controller => 'bookings', :action => 'show', :id => itinerary.booking_id} %></td>
+    <td><%= link_to 'Show', itinerary %></td>
+    <td><%= link_to 'Edit', edit_itinerary_path(itinerary) %></td>
+    <td><%= link_to 'Destroy', itinerary, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />

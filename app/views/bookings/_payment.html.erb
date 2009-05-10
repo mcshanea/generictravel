@@ -1,0 +1,21 @@
+<div class="payment">
+  <% fields_for_payment(payment) do |f| %>
+    <p>
+      <b>Value</b><br />
+      <%= f.text_field :value %>
+    </p>
+
+    <p>
+      <b>Payment type</b><br />
+      <%= f.select :payment_type, Payment::PAYMENT_TYPES %>
+    </p>
+
+    <p>
+      <b>Processed date</b><br />
+	  <%= f.calendar_date_select :processed_date %>
+    </p>
+
+    <%= link_to_function "remove", "this.up('.payment').remove()" %>
+
+  <% end %>
+</div>

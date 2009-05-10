@@ -1,0 +1,26 @@
+<h1>Listing agents</h1>
+
+<table>
+  <tr>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Telephone</th>
+    <th>Mobile</th>
+  </tr>
+
+<% for agent in @agents %>
+  <tr>
+    <td><%=h agent.first_name %></td>
+    <td><%=h agent.last_name %></td>
+    <td><%=h agent.telephone %></td>
+    <td><%=h agent.mobile %></td>
+    <td><%= link_to 'List', {:controller => 'bookings', :action => 'index', :agent_id => agent.id} %></td>
+    <td><%= link_to 'Show', agent %></td>
+    <% if agent.id == current_user.id || current_user.role == "admin" %>
+      <td><%= link_to 'Edit', edit_agent_path(agent) %></td>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+
+<br />

@@ -1,0 +1,26 @@
+<h1>Editing company</h1>
+
+<% form_for(@company) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+
+	<% if @company.location_id.nil? %>
+		<p><%= link_to('Add a Location', {:controller => 'locations', 
+	                                :action => 'new', 
+	                                :company_id => @company.id}, 
+	                                :popup => ['New Location', 'height=550,width=500']) %></p>
+	<% else %>
+		<%= render :partial => "location", :locals => {:location => Location.find(@company.location_id) } %>
+	<% end %>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @company %> |
+<%= link_to 'Back', companies_path %>

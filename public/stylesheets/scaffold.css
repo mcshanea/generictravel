@@ -1,0 +1,145 @@
+body {
+  background-color: #fff;
+  color: #333;  ;
+  margin:3px;
+}
+ 
+body, p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size:   13px;
+  line-height: 18px;
+}
+ 
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+ 
+a { color: #000; }
+a:visited { color: #000; }
+a:hover { color: #fff; background-color:#000; }
+ 
+.fieldWithErrors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+ 
+#errorExplanation {
+  width: 400px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+ 
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #c00;
+  color: #fff;
+}
+ 
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+ 
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+ 
+div#header{
+  padding-left:5px;
+}
+div#left-sidebar{
+  position:absolute;
+  top:20;
+  left:0;
+  padding-left: 5px;
+  width:145px;
+  height:100%;
+}
+div#content{
+  padding: 0px 0pt 0pt 150px;
+}
+ 
+  @media screen{
+  body>div#header{
+   position:fixed;
+  }
+  body>div#left-sidebar{
+   position:fixed;
+  }
+}
+* html body{
+  overflow:hidden;
+}
+* html div#content{
+  height:100%;
+  overflow:auto;
+}
+
+#main_nav .adminLinks a {
+	color:#444444;
+}
+
+#itineraries {
+  background-color: #CDC8B1;
+}
+ 
+#excursions {
+    background-color: #F6F9ED;
+}
+ 
+#payments {
+    background-color: #C1FFC1;
+}
+ 
+#clients {
+    background-color: #ECF1EF;
+}
+
+#rates {
+  background-color: #CDC8B1;
+}
+ 
+img {
+    color: transparent;
+    background-color: #fff;
+}
+ 
+.itinerary {
+    border-top: solid #000000;
+}
+
+.itinerary_hotel {
+    border: solid #000000 1px;padding-left:5px;
+}
+ 
+.excursion {
+    border-top: solid #000000;
+}
+ 
+.payment {
+    border-top: solid #000000;
+}
+
+.rate {
+    border-top: solid #000000;margin-bottom:5px;
+}
+ 
+.logout {
+  position: absolute; top: 10px; right: 20px;
+}
+ 
+.logout a { color: #00F; }
+.logout a:visited { color: #00F; }
+.logout a:hover { color: #fff; background-color:#000; }

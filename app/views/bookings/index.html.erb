@@ -1,0 +1,36 @@
+<h1>Listing bookings</h1>
+
+<form id="form_id">
+<%= select("booking","status_select", Booking::STATUS,
+          options={:include_blank => true},{:onchange =>"$('form_id').submit()"}) -%>
+</form>
+
+
+<table>
+  <tr>
+	<th>Booking Number</th>
+    <th>Status</th>
+    <th>Lead Passenger</th>
+		<th>Agent</th>
+  </tr>
+  
+<% for booking in @bookings %>
+  <tr>
+	<td><%=h booking.id %></td>
+    <td <%= getRowStyle(booking) %>><%=h booking.status %></td>
+    <td><%=h getLeadClientName(booking.leader_id) %></td>
+    <td><%=h booking.agent.last_name %></td>
+    <td><%= link_to 'Show', booking %></td>
+    <% if booking.agent_id == current_user.id %>
+      <% if booking.sent_date.nil? %>
+        <td><%= link_to 'Edit', edit_booking_path(booking) %></td>
+      <% end %>
+      <td><%= link_to image_tag("/images/icons/delete.png", {:title => "remove"}), booking, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New booking', new_booking_path %>

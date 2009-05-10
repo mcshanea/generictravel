@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title><%= controller.controller_name %>: <%= controller.action_name %></title>
+    <%# javascript_include_tag :defaults, "jquery" %>
+		<%= javascript_include_tag :defaults %>
+
+		<%= yield(:head) %>
+
+		<link href="/stylesheets/scaffold.css" media="screen" rel="stylesheet" type="text/css" />
+
+	<%= calendar_date_select_includes "red" %>
+</head>
+
+<body>
+
+<div id="main_nav">
+<table border="0" align="center">
+<tbody>
+<tr>
+  
+  <% if current_user && current_user.role == "super-admin" %>
+    <td>
+    <%= link_to "Admin", :controller => 'admin/bookings' %>
+    </td>
+  <% end  %>
+  
+<td>
+<%= link_to "Bookings", :controller => 'bookings' %>
+</td>
+<td>
+<%= link_to "Clients", :controller => 'clients' %>
+</td>
+<td>
+<%= link_to "Itineraries", :controller => 'itineraries' %>
+</td>
+<td>
+<%= link_to "Excursions", :controller => 'excursions' %>
+</td>
+<td>
+<%= link_to "Payments", :controller => 'payments' %>
+</td>
+<td>
+<%= link_to "Agents", :controller => 'agents' %>
+</td>
+<% if current_user && current_user.role == "admin" %>
+	<td class='adminLinks'>
+	<%= link_to "Services", :controller => 'services' %>
+	</td>
+  <td class='adminLinks'>
+  <%= link_to "Hotels", :controller => 'hotels' %>
+  </td>
+<% end  %>
+</tr>
+</tbody>
+</table>
+</div>
+
+<span class="logout"><%= link_to 'Logout', '/logout' %><img src="/images/icons/status_offline.png"></span>
+
+<p style="color: green"><%= flash[:notice] %></p>
+
+<p style="color: red"><%= flash[:error] %></p>
+
+<%= yield  %>
+
+</body>
+</html>

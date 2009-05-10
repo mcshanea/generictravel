@@ -1,0 +1,18 @@
+<p>
+  <b>Value:</b>
+  <%=h @payment.value %>
+</p>
+
+<p>
+  <b>Payment type:</b>
+  <%=h @payment.payment_type %>
+</p>
+
+<p>
+  <b>Processed date:</b>
+  <%=h @payment.processed_date %>
+</p>
+
+
+<%= link_to 'Edit', edit_payment_path(@payment) %> |
+<%= link_to 'Back', payments_path %>

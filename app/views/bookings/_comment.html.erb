@@ -1,0 +1,11 @@
+<div class="comment">
+<% fields_for_comment(comment) do |f| %>
+  <p>
+    <b>Comment</b><br />
+    <%= f.text_area :value %>
+  </p>
+
+  <%= link_to_function "remove", "this.up('.comment').remove()" %>
+
+<% end %>
+  </div>

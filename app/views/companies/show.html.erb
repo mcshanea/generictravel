@@ -1,0 +1,18 @@
+<p>
+  <b>Name:</b>
+  <%=h @company.name %>
+</p>
+
+<p>
+  <b>Licences:</b>
+  <%=h @company.licences %>
+</p>
+
+<p>
+  <b>Active:</b>
+  <%=h @company.active %>
+</p>
+
+
+<%= link_to 'Edit', edit_company_path(@company) %> |
+<%= link_to 'Back', companies_path %>

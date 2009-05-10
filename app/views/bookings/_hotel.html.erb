@@ -1,0 +1,25 @@
+<% rate = Rate.find(rate_id) %>
+
+<% room = rate.room %>
+
+<% hotel = room.hotel %>
+
+<p>
+  <b>Name:</b>
+  <%=h hotel.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h hotel.description %>
+</p>
+
+<p>
+  <b>Room Type:</b>
+  <%=h room.room_type %>
+</p>
+
+<p>
+  <b>Rate:</b>
+  <%=h rate.amount %>
+</p>

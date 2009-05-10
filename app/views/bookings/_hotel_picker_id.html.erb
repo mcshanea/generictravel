@@ -1,0 +1,7 @@
+<p>
+<b>Hotel Name:</b><br />
+<%= collection_select(:itinerary, :hotel_id, Hotel.find_all_by_city(city), :id, :name, {:prompt => true}, {:onchange => remote_function(:update => "hotel_room_#{i}",
+      :url => { :action => :update_room_options }, :with => "'hotel_id='+value", :position => "replace")}) %>
+</p>
+
+<div id="hotel_room_<%= i %>"></div>

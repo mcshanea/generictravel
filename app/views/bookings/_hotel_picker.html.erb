@@ -1,0 +1,16 @@
+<script language="JavaScript" type="text/JavaScript">
+	function showHotels(hotel) {
+		alert(hotel);
+	};
+</script>
+
+<% i = rand_with_range(1..500) %>
+
+<p>
+<b>City:</b><br />
+<%= collection_select(:hotel, :hotel_id, Hotel.find(:all), :city, :city, {:prompt => true}, {:onchange => remote_function(:update => "hotel_list_#{i}",
+      :url => { :action => :update_hotel_options }, :with => "'city='+value+'&div_id=#{id}'", :position => "replace")}) %>
+</p>
+
+<div id="hotel_list_<%= i %>"></div>
+

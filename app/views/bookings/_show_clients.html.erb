@@ -1,0 +1,22 @@
+<div id="clients">
+<% for client in clients %>
+<%=h client.title %>
+
+<%=h client.first_name %>
+
+<%= link_to(client.last_name, {:controller => 'clients', :action => 'show', :id => client.id}, :popup => ['Show Client', 'height=550,width=500']) %>
+
+<%= link_to 'Show',
+	    { :controller => 'clients',:action => "show", :id => client.id }, :popup => ['Edit Client', 'height=650,width=500'] %>
+
+<% if client.id != @booking.leader_id %>
+	<%= link_to_remote 'Make Leader', :update => "clients",
+	    :url => { :action => "make_leader", :leader_id => client.id, :booking_id => @booking.id } %>
+<% end %>
+
+<%= link_to_remote image_tag("/images/icons/delete.png", {:title => "remove"}), :update => "clients",
+    :url => { :action => "destroy_client", :id => client.id, :booking_id => @booking.id }, :confirm => "Are you sure?" %>
+
+<br />
+<% end %>
+</div>

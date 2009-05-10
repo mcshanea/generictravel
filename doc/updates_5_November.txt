@@ -1,0 +1,2 @@
+- Need to add reminder validation to ensure a username has been entered before submit
+- Test email

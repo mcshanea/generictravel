@@ -1,0 +1,19 @@
+<div id="rooms">
+<table>
+  <tr>
+    <th>Room type</th>
+    <th>Hotel</th>
+    <th>Description</th>
+  </tr>
+
+<% for room in rooms %>
+  <tr>
+    <td><%=h room.room_type %></td>
+    <td><%=h room.hotel_id %></td>
+    <td><%=h room.description %></td>
+		<td><%= link_to 'Edit', edit_room_path(room), {:popup => ['Edit Room', 'height=550,width=500,scrollbars=yes']} %></td>
+    <td><%= link_to 'Destroy', room, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+</div>

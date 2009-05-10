@@ -1,0 +1,29 @@
+<h1>Listing clients</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Email address</th>
+    <th>Telephone</th>
+    <th>Mobile</th>
+  </tr>
+
+<% for client in @clients %>
+  <tr>
+    <td><%=h client.title %></td>
+    <td><%=h client.first_name %></td>
+    <td><%=h client.last_name %></td>
+    <td><%=h client.email_address %></td>
+    <td><%=h client.telephone %></td>
+    <td><%=h client.mobile %></td>
+    <td><%= link_to 'List', {:controller => 'bookings', :action => 'index', :client_id => client.id} %></td>
+    <td><%= link_to 'Show', client, :popup => ['Client', 'height=550,width=500'] %></td>
+    <td><%= link_to 'Edit', edit_client_path(client), :popup => ['Client', 'height=550,width=500'] %></td>
+    <td><%= link_to 'Destroy', client, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />

@@ -1,0 +1,23 @@
+<p>
+  <b>Duration:</b>
+  <%=h @excursion.duration %>
+</p>
+
+<p>
+  <b>Arrival date:</b>
+  <%=h @excursion.arrival_date %>
+</p>
+
+<p>
+  <b>Departure date:</b>
+  <%=h @excursion.departure_date %>
+</p>
+
+<p>
+  <b>Booking reference:</b>
+  <%=h @excursion.booking_reference %>
+</p>
+
+
+<%= link_to 'Edit', edit_excursion_path(@excursion) %> |
+<%= link_to 'Back', excursions_path %>

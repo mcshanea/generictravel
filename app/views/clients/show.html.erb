@@ -1,0 +1,34 @@
+<style>.logout {  display: none; } #main_nav {  display: none; }</style>
+
+<p>
+  <b>Title:</b>
+  <%=h @client.title %>
+</p>
+
+<p>
+  <b>First name:</b>
+  <%=h @client.first_name %>
+</p>
+
+<p>
+  <b>Last name:</b>
+  <%=h @client.last_name %>
+</p>
+
+<p>
+  <b>Email address:</b>
+  <%=h @client.email_address %>
+</p>
+
+<p>
+  <b>Telephone:</b>
+  <%=h @client.telephone %>
+</p>
+
+<p>
+  <b>Mobile:</b>
+  <%=h @client.mobile %>
+</p>
+
+
+<%= link_to 'Edit', edit_client_path(@client) %>

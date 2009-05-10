@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title><%= controller.controller_name %>: <%= controller.action_name %></title>
+    <%= javascript_include_tag :defaults %>
+    <%= active_scaffold_includes %>
+    
+<table border="0" align="center">
+<tbody>
+<tr>
+<td>
+<%= link_to "Home", :controller => '../home'%>
+</td>
+<td>
+<%= link_to "Bookings", :controller => 'admin/bookings' %>
+</td>
+<td>
+<%= link_to "Companies", :controller => 'admin/companies' %>
+</td>
+<td>
+<%= link_to "Clients", :controller => 'admin/clients' %>
+</td>
+<td>
+<%= link_to "Itineraries", :controller => 'admin/itineraries' %>
+</td>
+<td>
+<%= link_to "Excursions", :controller => 'admin/excursions' %>
+</td>
+<td>
+<%= link_to "Services", :controller => 'admin/services' %>
+</td>
+<td>
+<%= link_to "Payments", :controller => 'admin/payments' %>
+</td>
+<td>
+<%= link_to "Agents", :controller => 'admin/agents' %>
+</tr>
+</tbody>
+</table>
+</head>
+
+<body>
+
+<p style="color: green"><%= flash[:notice] %></p>
+
+<%= yield  %>
+
+</body>
+</html>

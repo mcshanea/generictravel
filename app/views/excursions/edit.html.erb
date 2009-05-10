@@ -1,0 +1,32 @@
+<h1>Editing excursion</h1>
+
+<%= error_messages_for :excursion %>
+
+<% form_for(@excursion) do |f| %>
+  <p>
+    <b>Duration</b><br />
+    <%= f.text_field :duration %>
+  </p>
+
+  <p>
+    <b>Arrival date</b><br />
+    <%= f.date_select :arrival_date %>
+  </p>
+
+  <p>
+    <b>Departure date</b><br />
+    <%= f.date_select :departure_date %>
+  </p>
+
+  <p>
+    <b>Booking reference</b><br />
+    <%= f.text_field :booking_reference %>
+  </p>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @excursion %> |
+<%= link_to 'Back', excursions_path %>

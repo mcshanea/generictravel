@@ -1,0 +1,18 @@
+<h1>Editing client</h1>
+
+<%= error_messages_for :client %>
+
+<% form_for(@client) do |f| %>
+  <%= render :partial => 'fields', :locals => { :f => f } %>
+
+  <div id="locations">
+    <%= render :partial => 'location', :collection => @client.locations %>
+  </div>
+  <p><%= add_location_link "Add a Location" %></p>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @client %>

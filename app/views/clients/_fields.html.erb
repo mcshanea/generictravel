@@ -1,0 +1,40 @@
+<style>.logout {  display: none; } #main_nav {  display: none; }</style>
+
+  <% booking_id = params[:booking_id] %>
+
+  <%= hidden_field_tag :booking_id, booking_id %>
+
+  <p>
+    <b>Title</b><br />
+    <%= f.text_field :title %>
+  </p>
+
+  <p>
+    <b>First name</b><br />
+    <%= f.text_field :first_name %>
+  </p>
+
+  <p>
+    <b>Last name</b><br />
+    <%= f.text_field :last_name %>
+  </p>
+
+  <p>
+    <b>Email address</b><br />
+    <%= f.text_field :email_address %>
+  </p>
+
+  <p>
+    <b>Telephone</b><br />
+    <%= f.text_field :telephone %>
+  </p>
+
+  <p>
+    <b>Mobile</b><br />
+    <%= f.text_field :mobile %>
+  </p>
+
+  <p>
+    <b>Notes</b><br />
+    <%= f.text_area :notes, :rows => 10 %>
+  </p>

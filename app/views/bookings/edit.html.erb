@@ -1,0 +1,57 @@
+<h1>Booking</h1>
+
+<div style="color:red;"><%= flash[:notice] %></div>
+
+<% getReminders(@booking) %>
+
+<% form_for(@booking) do |f| %>
+
+<div id="header"> 
+  <%= render :partial => 'fields', :locals => { :f => f } %>
+</div>
+
+<div id="left-sidebar">
+  <p><%= link_to('Add a client', {:controller => 'clients', 
+                                :action => 'new', 
+                                :booking_id => @booking.id}, 
+                                :popup => ['New Client', 'height=550,width=500,scrollbars=yes']) %> <img src="/images/icons/user_add.png">
+  <%= link_to_remote(image_tag("/images/icons/folder_user.png", {:title => "Refresh Client List"}), 
+              :update => 'clients', 
+              :url => {:action => :refresh_booking_client, :booking_id => @booking.id} ) %></p>
+  <p><%= add_air_link "Add a Flight" %> <img src="/images/icons/car_add.png"></p>
+	<p><%= add_hotel_link "Add a Hotel" %> <img src="/images/icons/car_add.png"></p>
+	<p><%= add_car_link "Add a Car Rental" %> <img src="/images/icons/car_add.png"></p>
+  <p><%= add_excursion_link "Add an Excursion" %> <img src="/images/icons/tag_blue_add.png"></p>
+  <p><%= add_payment_link "Add a Payment" %> <img src="/images/icons/money_add.png"></p>
+  <p><%= add_comment_link "Add a Comment" %> <img src="/images/icons/user_comment.png"></p>
+  <p>
+    <%= f.submit "Save" %>
+  </p>
+  <%= link_to 'Show', @booking %> |
+  <%= link_to 'Back', bookings_path %>
+</div>
+
+<div id="content">
+  <div id="new_item"></div>
+
+  <%= render :partial => 'show_clients', :locals => { :clients => @booking.clients } %>
+
+  <div id="itineraries">
+    <%= render :partial => 'itinerary', :collection => @booking.itineraries %>
+  </div>
+  
+  
+    <div id="excursions">
+      <%= render :partial => 'excursion', :collection => @booking.excursions %>
+    </div>
+  
+ <div id="payments">
+    <%= render :partial => 'payment', :collection => @booking.payments %>
+  </div>
+
+ <div id="comments">
+    <%= render :partial => 'comment', :collection => @booking.comments %>
+  </div>
+</div>
+
+<% end %>

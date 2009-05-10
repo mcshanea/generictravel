@@ -1,0 +1,44 @@
+<h1>Editing search</h1>
+
+<% form_for(@search) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :departing %><br />
+    <%= f.text_field :departing %>
+  </p>
+  <p>
+    <%= f.label :arriving %><br />
+    <%= f.text_field :arriving %>
+  </p>
+  <p>
+    <%= f.label :status %><br />
+    <%= f.text_field :status %>
+  </p>
+  <p>
+    <%= f.label :from %><br />
+    <%= f.date_select :from %>
+  </p>
+  <p>
+    <%= f.label :to %><br />
+    <%= f.date_select :to %>
+  </p>
+  <p>
+    <%= f.label :service_id %><br />
+    <%= f.text_field :service_id %>
+  </p>
+  <p>
+    <%= f.label :agent_id %><br />
+    <%= f.text_field :agent_id %>
+  </p>
+  <p>
+    <%= f.label :customer_id %><br />
+    <%= f.text_field :customer_id %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @search %> |
+<%= link_to 'Back', searches_path %>

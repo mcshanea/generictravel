@@ -1,0 +1,26 @@
+<%= error_messages_for :booking %>
+
+  <p>
+    <b>Status</b><br />
+    <%= f.select :status, Booking::STATUS %>
+  </p>
+
+  <p>
+    <b>Sent date</b><br />
+	<%= f.calendar_date_select :sent_date %>
+  </p>
+
+  <p>
+    <b>Percentage</b><br />
+    <%= f.text_field :agent_percentage %>
+  </p>
+
+  <p>
+    <b>Total</b><br />
+    <%= getPaymentTotal(@booking) %>
+  </p>
+
+  <p>
+    <b>Agent</b><br />
+    <%= @booking.agent.first_name + ' ' + @booking.agent.last_name %>
+  </p>

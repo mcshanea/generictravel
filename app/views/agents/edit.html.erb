@@ -1,0 +1,39 @@
+<h1>Editing agent</h1>
+
+<%= error_messages_for :agent %>
+
+<% form_for(@agent) do |f| %>
+  <p>
+    <b>First name</b><br />
+    <%= f.text_field :first_name %>
+  </p>
+
+  <p>
+    <b>Last name</b><br />
+    <%= f.text_field :last_name %>
+  </p>
+
+  <p>
+    <b>Telephone</b><br />
+    <%= f.text_field :telephone %>
+  </p>
+
+  <p>
+    <b>Mobile</b><br />
+    <%= f.text_field :mobile %>
+  </p>
+	
+	<% if current_user.role == "admin" %>
+			<p>
+				<%= f.label :active %><br />
+				<%= f.check_box :active %>
+			</p>
+	<% end %>
+	
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @agent %> |
+<%= link_to 'Back', agents_path %>

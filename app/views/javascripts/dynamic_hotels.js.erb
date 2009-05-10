@@ -1,0 +1,28 @@
+var hotels = new Array();
+<% for hotel in @hotels -%>
+  hotels.push(new Array('<%= hotel.city %>', '<%=h hotel.name %>', <%= hotel.id %>));
+<% end -%>
+
+function hotelSelected() {
+  city = $('itinerary_hotel_city').getValue();
+  options = $('itinerary_hotel_id').options;
+  options.length = 1;
+  hotels.each(function(hotel) {
+    if (hotel[0] == city) {
+      options[options.length] = new Option(hotel[1], hotel[2]);
+    }
+  });
+
+	alert(options.length);
+
+  if (options.length == 1) {
+    $('hotel_field').hide();
+  } else {
+    $('hotel_field').show();
+  }
+}
+
+document.observe('dom:loaded', function() {
+  hotelSelected();
+  $('itinerary_hotel_city').observe('change', hotelSelected);
+});

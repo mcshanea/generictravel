@@ -1,0 +1,23 @@
+<h2>Booking</h2>
+
+<% getReminders(@booking) %>
+
+<p>
+  <b>Status:</b>
+  <%=h @booking.status %>
+</p>
+
+<p>
+  <b>Sent date:</b>
+  <%=h @booking.sent_date %>
+</p>
+
+<p>
+  <b>Total Cost:</b>
+	<%= getPaymentTotal(@booking) %>
+</p>
+
+<p><%= link_to 'Invoice', formatted_booking_path(:id => @booking.id, :format => :pdf) %></p>
+
+<%= link_to 'Edit', edit_booking_path(@booking) %> |
+<%= link_to 'Back', bookings_path %>

@@ -1,0 +1,25 @@
+<h1>Listing excursions</h1>
+
+<table>
+  <tr>
+    <th>Duration</th>
+    <th>Arrival date</th>
+    <th>Departure date</th>
+    <th>Booking reference</th>
+  </tr>
+
+<% for excursion in @excursions %>
+  <tr>
+    <td><%=h excursion.duration %></td>
+    <td><%=h excursion.arrival_date %></td>
+    <td><%=h excursion.departure_date %></td>
+    <td><%=h excursion.booking_reference %></td>
+    <td><%= link_to 'List', {:controller => 'bookings', :action => 'show', :id => excursion.booking_id} %></td>
+    <td><%= link_to 'Show', excursion %></td>
+    <td><%= link_to 'Edit', edit_excursion_path(excursion) %></td>
+    <td><%= link_to 'Destroy', excursion, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />

@@ -1,0 +1,18 @@
+<script language="JavaScript" type="text/JavaScript">
+	function showHotels(hotel) {
+		alert(hotel);
+	};
+</script>
+
+<p>
+<b>Room Type:</b><br />
+<%= collection_select(:itinerary, :room_id, Room.find_all_by_hotel_id(hotel_id), :id, :room_type, {:prompt => true}, {:onchange => remote_function(:update => "hotel_room_rate",
+      :url => {:action => :refresh_hotel_rate},
+			:with => "'room_id=' + $('itinerary_room_id').value+
+									'&departure_date=' + $('booking_new_itinerary_attributes__departure_date').value+
+									'&arrival_date=' + $('booking_new_itinerary_attributes__arrival_date').value", :position => "replace")}) %>
+</p>
+
+<div id="hotel_room_rate"></div>
+
+<br />

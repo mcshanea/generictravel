@@ -1,0 +1,25 @@
+Adrian,
+
+Thanks for your time and I thought it was all looking good. As discussed
+points to amend:
+
+- Automatically generated booking numbers
+- Ability to produce an invoice
+- Administer a group leader for each booking
+- Notes on a client
+- Add up cost of services and then ability to mark up by percentage and only
+have sale price visible
+- Details of hotels and fixed departure trips to be supplied by me
+- Change booking summary to show name, month of travel, booking number,
+agent
+- Add month of travel to booking
+
+Is there a way to put the bookings into a calendar?
+
+Hope this all makes sense, just rushing around trying to catch up on
+yesterday but will try and get the stuff I am sending to you over asap.
+
+Cheers,
+
+
+Will
