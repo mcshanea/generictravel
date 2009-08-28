@@ -42,7 +42,7 @@
 		<% end %>
 	
 		<div class="itinerary_dep_date">
-			<%= f.calendar_date_select :departure_date, :time => true %>
+			<%= f.text_field :departure_date, :time => true, :class => 'date-picker' %>
 		</div>
   </p>
   
@@ -54,7 +54,7 @@
 		<% end %>
     
 		<div class="itinerary_arr_date">
-			<%= f.calendar_date_select :arrival_date, :time => true %>
+			<%= f.text_field :arrival_date, :time => true, :class => 'date-picker' %>
 		</div>
   </p>
 

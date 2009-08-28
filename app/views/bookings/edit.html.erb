@@ -1,3 +1,13 @@
+<script type="text/javascript">
+$(document).ready(function() {
+	$('.date-picker').datePicker();
+});
+</script>
+
+<%= javascript_include_tag 'calendar_date_select/calendar_date_select' %>
+
+<link href="/stylesheets/datePicker.css" media="screen" rel="stylesheet" type="text/css" />
+
 <h1>Booking</h1>
 
 <div style="color:red;"><%= flash[:notice] %></div>
