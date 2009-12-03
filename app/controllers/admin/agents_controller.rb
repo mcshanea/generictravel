@@ -6,6 +6,6 @@ class Admin::AgentsController < Admin::ScaffoldController
   active_scaffold
  
   active_scaffold :agent do |config|
-    config.columns = [ :login, :role, :active ]
+    config.columns = [ :login, :role, :active, :company_id ]
   end
 end
