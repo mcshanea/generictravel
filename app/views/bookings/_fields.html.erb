@@ -20,7 +20,9 @@
     <%= getPaymentTotal(@booking) %>
   </p>
 
+	<% if @booking.agent %>
   <p>
     <b>Agent</b><br />
     <%= @booking.agent.first_name + ' ' + @booking.agent.last_name %>
   </p>
+	<% end %>
